@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 text-center">
+
+        <h2 class="mb-4">Scan Result</h2>
+
+        {% if status == "CLEAN" %}
+            <div class="alert alert-success">
+                <h4>Status: {{ status }}</h4>
+                <p>{{ report }}</p>
+            </div>
+        {% elif status == "SUSPICIOUS" %}
+            <div class="alert alert-danger">
+                <h4>Status: {{ status }}</h4>
+                <p>{{ report }}</p>
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                <h4>Status: {{ status }}</h4>
+                <p>{{ report }}</p>
+            </div>
+        {% endif %}
+
+        <div class="mt-3">
+            <a href="/upload/" class="btn btn-primary me-2">Upload Another File</a>
+            <a href="/history/" class="btn btn-outline-dark">View History</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
